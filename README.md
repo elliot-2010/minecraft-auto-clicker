@@ -96,7 +96,7 @@ This tool simulates physical mouse clicks for personal, single-player use. Using
 
 ## 👤 Author
 
-**Elliot** — 15 y/o developer from Isfahan, Linux enthusiast, building real tools while learning Python.
+**Elliot** — 15 y/o developer from Iran, Linux enthusiast, building real tools while learning Python.
 
 ---
 
