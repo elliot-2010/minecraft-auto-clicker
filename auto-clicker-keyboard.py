@@ -1,5 +1,5 @@
-from pynput.mouse import Controller, Listener, Button
-#from pynput.keyboard import Key, Controller
+from pynput.mouse import Controller, Button
+from pynput.keyboard import Key, Listener
 import threading
 import time
 
@@ -18,12 +18,12 @@ def click_loop():
             time.sleep(1/20)
         else:
             time.sleep(0.01)
-def on_click(x, y, button, pressed):
+def on_press(key):
     global clicking_right, clicking_left
-    if button == Button.button9 and pressed:
+    if key == Key.caps_lock:
         clicking_left = not clicking_left   # toggle: روشن/خاموش
         print("Auto-click-left:", "ON" if clicking_left else "OFF")
-    elif button == Button.button8 and  pressed:
+    elif key == Key.f6:
         clicking_right = not clicking_right
         print("Auto-click:-right", "ON" if clicking_right else "OFF")
 
@@ -33,6 +33,6 @@ def on_click(x, y, button, pressed):
 t = threading.Thread(target=click_loop, daemon=True)
 t.start()
 
-# Listener برای دکمه موس
-with Listener(on_click=on_click) as listener:
+
+with Listener(on_press=on_press) as listener:
     listener.join()
